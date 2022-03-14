@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "kvn_safe_callback.h"
+#include "kvn_safe_callback.hpp"
 
 TEST(SafeCallbackTest, CallWithIntReturnVoid) {
     int destination = 0;
