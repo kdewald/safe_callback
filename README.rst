@@ -1,7 +1,7 @@
 Safe Callback
 ==========
 
-A wrapper around C++ std::function with some thread-safety guarantees.
+A wrapper around std::function with some thread-safety guarantees.
 
 Overview
 --------
