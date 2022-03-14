@@ -13,12 +13,20 @@ class safe_callback;
 template <class _Res, class... _ArgTypes>
 class safe_callback<_Res(_ArgTypes...)> {
   public:
+    virtual ~safe_callback() {
+        if (!_is_loaded) {
+            return;
+        }
+        unload();
+    };
+
     void load(std::function<_Res(_ArgTypes...)> callback) {
+        if (callback == nullptr) {
+            return;
+        }
         std::scoped_lock{_mutex};
         _callback = callback;
-        if (callback != nullptr) {
-            _is_loaded = true;
-        }
+        _is_loaded = true;
     }
 
     void unload() {
