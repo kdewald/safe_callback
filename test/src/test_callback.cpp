@@ -35,6 +35,20 @@ TEST(SafeCallbackTest, UninitializedCall) {
     callback_int();
 }
 
+TEST(SafeCallbackTest, ExplicitBool) {
+    kvn::safe_callback<void(void)> callback_void;
+
+    if (callback_void) {
+        FAIL() << "Uninitialized callback should not be true.";
+    }
+
+    callback_void.load([](void) {});
+
+    if (!callback_void) {
+        FAIL() << "Initialized callback should be true.";
+    }
+}
+
 // Uncomment the following lines to test if non default constructible classes
 // are correctly identified.
 /*

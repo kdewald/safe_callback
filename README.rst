@@ -40,6 +40,11 @@ of interest to the user are presented here:::
         std::cout << "Callback is loaded" << std::endl;
     }
 
+    // Another way of checking if the callback is loaded.
+    if (cb) {
+        std::cout << "Callback is loaded" << std::endl;
+    }
+
     // Call the callback and print the result
     int result = cb(42);
     std::cout << "Result: " << result << std::endl;
