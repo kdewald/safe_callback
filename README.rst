@@ -21,7 +21,8 @@ If you need help using this library, **please do not hesitate to reach out!**
 Usage
 -----
 
-The following code briefly describes how to use the safe callback.::
+The following code briefly describes how to use the safe callback. All functions
+of interest to the user are presented here:::
 
     #include <kvn_safe_callback.hpp>
 
@@ -34,9 +35,17 @@ The following code briefly describes how to use the safe callback.::
         return i * 2;
     });
 
+    // Check if the callback is loaded
+    if (cb.is_loaded()) {
+        std::cout << "Callback is loaded" << std::endl;
+    }
+
     // Call the callback and print the result
     int result = cb(42);
     std::cout << "Result: " << result << std::endl;
+
+    // Unload the callback
+    cb.unload();
 
 A few notes that need to be highlighted on the behavior of the safe callback:
 
@@ -45,6 +54,9 @@ A few notes that need to be highlighted on the behavior of the safe callback:
 * In the cases where the callback wrapper is not loaded and the internal function
   returns a value, the return value will be the default value of the return type.
   This means that all return types need to be default constructible.
+  If you use a non-default-constructible type, the following error message will
+  appear during compilation: 
+  ``error: no matching function for call to 'YourClass::YourClass()'``
 
 License
 -------

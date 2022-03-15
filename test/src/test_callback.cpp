@@ -2,6 +2,8 @@
 
 #include "kvn_safe_callback.hpp"
 
+// TODO: Multithreading tests need to be implemented.
+
 TEST(SafeCallbackTest, CallWithIntReturnVoid) {
     int destination = 0;
 
@@ -32,3 +34,17 @@ TEST(SafeCallbackTest, UninitializedCall) {
     callback_void();
     callback_int();
 }
+
+// Uncomment the following lines to test if non default constructible classes
+// are correctly identified.
+/*
+class NonDefaultConstructible {
+ public:
+  NonDefaultConstructible(int) {}
+};
+
+TEST(SafeCallbackTest, NonDefaultConstructible) {
+    kvn::safe_callback<NonDefaultConstructible(void)> callback;
+    auto value = callback();
+}
+*/
