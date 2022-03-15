@@ -21,3 +21,14 @@ TEST(SafeCallbackTest, CallWithVoidReturnInt) {
     destination = callback();
     ASSERT_EQ(destination, 42);
 }
+
+TEST(SafeCallbackTest, UninitializedCall) {
+    kvn::safe_callback<void(void)> callback_void;
+    kvn::safe_callback<int(void)> callback_int;
+
+    // Unfortunately, there is not a clean way to test that the callbacks
+    // are not called besides from attempting to run them and seeing if the
+    // program crashes.
+    callback_void();
+    callback_int();
+}
