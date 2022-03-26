@@ -22,7 +22,7 @@ jobs:
           cmake-version: "3.21.x"
       - name: Compile Unit Tests
         run: |
-          mkdir -p $GITHUB_WORKSPACE/build
+          mkdir $GITHUB_WORKSPACE/build
           cd $GITHUB_WORKSPACE/build
           cmake -DCMAKE_BUILD_TYPE=Debug ../test
           make -j4
@@ -48,7 +48,7 @@ jobs:
           cmake-version: "3.21.x"
       - name: Compile Unit Tests
         run: |
-          mkdir -p $GITHUB_WORKSPACE/build
+          mkdir $GITHUB_WORKSPACE/build
           cd $GITHUB_WORKSPACE/build
           cmake -DCMAKE_BUILD_TYPE=Debug ../test
           make -j4
@@ -74,7 +74,7 @@ jobs:
           cmake-version: "3.21.x"
       - name: Compile Unit Tests
         run: |
-          mkdir -p $GITHUB_WORKSPACE/build
+          mkdir $GITHUB_WORKSPACE/build
           cd $GITHUB_WORKSPACE/build
           cmake -DCMAKE_BUILD_TYPE=Debug ../test
           cmake --build $GITHUB_WORKSPACE/build --config Debug
