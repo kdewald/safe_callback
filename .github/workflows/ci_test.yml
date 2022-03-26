@@ -17,7 +17,7 @@ jobs:
       - name: Clone Repository
         uses: actions/checkout@v2
       - name: Setup Cmake
-        uses: jwlawson/actions-setup-cmake@v1.4
+        uses: jwlawson/actions-setup-cmake@v1.12
         with:
           cmake-version: "3.21.x"
       - name: Compile Unit Tests
@@ -44,7 +44,7 @@ jobs:
       - name: Clone Repository
         uses: actions/checkout@v2
       - name: Setup Cmake
-        uses: jwlawson/actions-setup-cmake@v1.4
+        uses: jwlawson/actions-setup-cmake@v1.12
         with:
           cmake-version: "3.21.x"
       - name: Compile Unit Tests
@@ -71,7 +71,7 @@ jobs:
       - name: Clone Repository
         uses: actions/checkout@v2
       - name: Setup Cmake
-        uses: jwlawson/actions-setup-cmake@v1.4
+        uses: jwlawson/actions-setup-cmake@v1.12
         with:
           cmake-version: "3.21.x"
       - name: Compile Unit Tests
