@@ -74,10 +74,10 @@ jobs:
           cmake-version: "3.21.x"
       - name: Compile Unit Tests
         run: |
-          mkdir $GITHUB_WORKSPACE/build
-          cd $GITHUB_WORKSPACE/build
-          cmake -DCMAKE_BUILD_TYPE=Debug ../test
-          cmake --build $GITHUB_WORKSPACE/build --config Debug
+          mkdir $GITHUB_WORKSPACE\build
+          cd $GITHUB_WORKSPACE\build
+          cmake -DCMAKE_BUILD_TYPE=Debug ..\test
+          cmake --build $GITHUB_WORKSPACE\build --config Debug
       - name: Run Unit Tests
         working-directory: build
         run: $GITHUB_WORKSPACE/build/Debug/safe_callback_test.exe
